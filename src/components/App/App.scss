@@ -1,0 +1,32 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans';
+  background-color: #f3f7fa;
+}
+
+.container {
+  width: 100%;
+  max-width: 754px;
+  margin: 0 auto;
+}
+
+.main {
+  display: flex;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.ticket-list-menu {
+  margin-left: 20px;
+  width: 502px;
+}
