@@ -5,7 +5,7 @@ import './TicketList.scss';
 
 const TicketList = () => {
   return (
-    <div className="TicketList">
+    <div className="ticket-list">
       <Ticket />
       <Ticket />
       <Ticket />
