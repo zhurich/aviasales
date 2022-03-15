@@ -10,12 +10,13 @@
 
   &__header {
     display: flex;
-    align-items: center;
+    // align-items: center;
     justify-content: space-between;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
 
   &__price {
+    margin-top: 3px;
     font-weight: 600;
     font-size: 24px;
     line-height: 24px;
@@ -35,6 +36,14 @@
   &__wrapper {
     font-family: Open Sans;
     font-weight: 600;
+  }
+
+  &__wrapper:nth-child(2) {
+    width: 60px;
+  }
+
+  &__wrapper:nth-child(3) {
+    width: 105px;
     margin-right: 20px;
   }
 
