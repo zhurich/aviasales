@@ -13,7 +13,6 @@ const TicketList = () => {
   const { tabs } = useSelector((state) => state.tab);
   const activeTab = tabs.find((el) => el.enabled);
   const { filters } = useSelector((state) => state.filter);
-  useEffect(() => {}, [filters]);
 
   useEffect(() => {
     if (searchId !== null) dispatch(fetchTickets(searchId));
