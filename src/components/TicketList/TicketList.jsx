@@ -49,33 +49,18 @@ const TicketList = () => {
 
   const filterByTransfers = (availableFilters, unFilteredTickets) => {
     const filteredTickets = [];
-    const enabledFilters = [];
-    availableFilters.map((item) => (item.enabled ? enabledFilters.push(item.title) : null));
+    const enabledFilters = availableFilters.map(item => item.enabled ? item.title : null);
     if (enabledFilters.includes('all')) return unFilteredTickets;
-    const filterTicketsByCount = (filterName) => {
-      let transfers = null;
-      switch (filterName) {
-        case 'without':
-          transfers = 0;
-          break;
-        case 'one':
-          transfers = 1;
-          break;
-        case 'two':
-          transfers = 2;
-          break;
-        case 'three':
-          transfers = 3;
-          break;
-        default:
-          break;
-      }
-      const afterFilter = unFilteredTickets.filter(
-        (el) => el.segments[0].stops.length === transfers && el.segments[1].stops.length === transfers
-      );
-      filteredTickets.push(...afterFilter);
-    };
-    enabledFilters.map((item) => filterTicketsByCount(item));
+    const ticketFilterFunc = (transfers) => {
+      return unFilteredTickets.filter((el) => el.segments[0].stops.length === transfers && el.segments[1].stops.length === transfers);
+    }
+    enabledFilters.map(item => {
+      if (item === 'without') filteredTickets.push(...ticketFilterFunc(0))
+      else if (item === 'one') filteredTickets.push(...ticketFilterFunc(1))
+      else if (item === 'two') filteredTickets.push(...ticketFilterFunc(2))
+      else if (item === 'three') filteredTickets.push(...ticketFilterFunc(3))
+      return filteredTickets
+    })
     return filteredTickets;
   };
 
